@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Revenue Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sales Revenue Predictor</h1>
+        <form action="/predict" method="POST">
+            <label for="ad_spend">Advertisement Spending ($):</label>
+            <input type="number" step="0.01" id="ad_spend" name="ad_spend" required>
+            <button type="submit">Predict Sales Revenue</button>
+        </form>
+        
+        {% if prediction %}
+        <div class="prediction-result">
+            <h2>{{ prediction }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
